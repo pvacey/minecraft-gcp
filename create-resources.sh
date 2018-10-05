@@ -29,7 +29,6 @@ TMP1=$(gcloud beta logging sinks describe minecraft-chat-logs | grep writerIdent
 TMP2=$(gcloud beta logging sinks describe minecraft-disconnect-logs | grep writerIdentity | cut -d" " -f2)
 gcloud beta pubsub topics add-iam-policy-binding minecraft-logs --member $TMP1 --role roles/pubsub.publisher
 gcloud beta pubsub topics add-iam-policy-binding minecraft-logs --member $TMP2 --role roles/pubsub.publisher
-exit
 
 # deploy cloud function
 cd cloud-function
