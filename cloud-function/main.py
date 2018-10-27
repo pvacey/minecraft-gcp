@@ -33,18 +33,18 @@ def log_handler(event, context):
     return
 
 def handle_intent(intent):
-	ip = lookup_instance()
-	# handle different intents
-	if intent['intent'] == 'Default Welcome Intent':
+    ip = lookup_instance()
+    # handle different intents
+    if intent['intent'] == 'Default Welcome Intent':
         say(intent['response'], ip=ip)
-	elif intent['intent'] == 'change_weather':
+    elif intent['intent'] == 'change_weather':
         change_weather(intent['intent_value'], ip=ip)
         say(intent['response'], ip=ip)
-	elif intent['intent'] == 'change_time':
+    elif intent['intent'] == 'change_time':
         change_time(intent['intent_value'], ip=ip)
         say(intent['response'], ip=ip)
-	else:
-		execute_rcon("/say " + intent['response'], ip=ip)
+    else:
+	    say(intent['response'], ip=ip)
 
 """
 DialogFlow request/response
